@@ -4,8 +4,8 @@ Generic and useful scripts for coding and editing Latex.
 
 ## Scripts
 
-* mktemplate
-* clg
+* mktemplate: Make a template and print it through stdout
+* clg: Clean specific files for a variety of task (e.g. Latex garbage (.aux, .log))
 
 
 ### mktemplate
