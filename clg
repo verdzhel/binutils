@@ -1,0 +1,11 @@
+#! /bin/bash
+
+if [ $# != 0 ];then
+    case $1 in
+        "latex") rm -f *.{log,aux};;
+        "latex-all") rm -f *.{log,aux,pdf};;
+        *) echo "Unrecognized kind-of-garbage";;
+    esac
+else
+    echo "Usage: clg kind-of-garbage"
+fi
