@@ -74,6 +74,26 @@ int main(int argc, char** argv)
 
     return s % math
 
+def c_h_template(c_h_flags):
+    s = \
+r"""#ifndef H_H
+#define H_H
+
+%s
+
+#endif
+"""
+
+    math = r"""
+#include <math.h>"""
+
+    try:
+        c_h_flags.index("math")
+    except ValueError:
+        math = ""
+
+    return s % math
+
 # mktemplate program ========================================
 args = argv[1:]
 
@@ -87,6 +107,8 @@ if t == "latex":
     print latex_template(args[1:])
 elif t == "c":
     print c_template(args[1:])
+elif t == "c-h":
+    print c_h_template(args[1:])
 else:
     print t, "is an unsupported template type"
 #============================================================
