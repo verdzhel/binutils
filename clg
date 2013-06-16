@@ -2,10 +2,14 @@
 
 if [ $# != 0 ];then
     case $1 in
-        "latex") rm -f *.{log,aux};;
-        "latex-all") rm -f *.{log,aux,pdf};;
+        "latex") rm -f *.{log,aux,toc,out};;
+        "latex-all") rm -f *.{log,aux,pdf,toc,out};;
+        "backups") rm -f *~;;
+	"all") case $2 in
+		 "backups") find . -name "*~"
+	       esac
         *) echo "Unrecognized kind-of-garbage";;
     esac
 else
-    echo "Usage: clg kind-of-garbage"
+    echo "Usage: clg [latex|latex-all|backups]"
 fi
